@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform:
+  - AWS::Serverless-2016-10-31
+  - AWS::CodeStar
+
+Parameters:
+  ProjectId:
+    Type: String
+    Description: MyBook API
+
+Resources:
+  Demo:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: com.demo.Handler
+      CodeUri: ./build/libs/lambda-kotlin-spring-1.0-SNAPSHOT-aws.jar
+      Runtime: java8
+      Timeout: 60
+      Role:
+        Fn::ImportValue:
+          !Join ['-', [!Ref 'ProjectId', !Ref 'AWS::Region', 'LambdaTrustRole']]
+      Events:
+        GetEvent:
+          Type: Api
+          Properties:
+            Path: /function
+            Method: get
