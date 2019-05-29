@@ -36,6 +36,7 @@ dependencies {
     compile 'com.amazonaws:aws-lambda-java-core:1.2.0'
     compile 'com.amazonaws:aws-lambda-java-events:2.1.0'
     compile 'com.amazonaws:aws-java-sdk-s3:1.11.308'
+    compile 'com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     compile "org.jetbrains.kotlin:kotlin-reflect"

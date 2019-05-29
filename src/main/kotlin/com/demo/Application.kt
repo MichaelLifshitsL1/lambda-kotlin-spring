@@ -14,9 +14,9 @@ class Application {
     @Bean
     fun function(objectMapper: ObjectMapper): Function<Message<Any>, Message<String>> {
         return Function {
-            GenericMessage("Saved to S3",
+            GenericMessage("Called!!! ${it.payload}",
                     mapOf("Content-type" to "text/plain",
-                            "statusCode" to 202))
+                            "statusCode" to 200))
         }
     }
 
