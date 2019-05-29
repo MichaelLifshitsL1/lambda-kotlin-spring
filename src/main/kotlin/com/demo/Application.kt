@@ -15,7 +15,7 @@ import java.util.function.Function
 class Application {
 
     @Bean
-    fun function(objectMapper: ObjectMapper): Function<Message<Any>, Message<String>> {
+    fun function(): Function<Message<Any>, Message<String>> {
         return Function {
             GenericMessage("Called!!! ${it.payload}",
                     mapOf("Content-type" to "text/plain",
